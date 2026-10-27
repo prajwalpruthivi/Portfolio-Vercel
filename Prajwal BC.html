@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prajwal BC | Python, ML and Data</title>
+<meta name="description" content="Portfolio of Prajwal BC, MCA postgraduate in Python, machine learning and data science. Explore how skills connect to real projects.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f1f3ec;--fg:#121614;--mute:#59625c;--card:#fff;--line:#d3d8cc;--sig:#4d6b00;--sigfg:#fff;--hot:#c2410c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101312;--fg:#eef1ea;--mute:#98a39b;--card:#171c1a;--line:#2a322e;--sig:#c6f432;--sigfg:#101312;--hot:#ff7a59}}
+:root[data-theme="dark"]{--bg:#101312;--fg:#eef1ea;--mute:#98a39b;--card:#171c1a;--line:#2a322e;--sig:#c6f432;--sigfg:#101312;--hot:#ff7a59}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+a{color:var(--sig)}
+:focus-visible{outline:3px solid var(--sig);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;justify-content:space-between;padding:12px 5vw;background:var(--bg);border-bottom:1px solid var(--line)}
+header b{font:800 .95rem Unbounded,sans-serif;letter-spacing:.02em}
+nav{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+nav a{color:var(--mute);text-decoration:none;font-size:.93rem}nav a:hover{color:var(--fg)}
+#theme{border:1px solid var(--line);background:none;border-radius:50%;width:34px;height:34px}
+section{max-width:1120px;margin:0 auto;padding:84px 5vw}
+.eyebrow{font:600 .8rem Manrope;letter-spacing:.14em;text-transform:uppercase;color:var(--sig);margin:0 0 14px}
+h1{font:800 clamp(2.6rem,10vw,7.2rem)/.95 Unbounded,sans-serif;letter-spacing:-.04em;margin:0 0 22px}
+h1 span{color:var(--sig)}
+h2{font:800 clamp(1.6rem,4vw,2.4rem)/1.1 Unbounded,sans-serif;margin:0 0 12px;letter-spacing:-.02em}
+h3{margin:0 0 4px;font-size:1.1rem}
+.lead{font-size:1.2rem;color:var(--mute);max-width:58ch;margin:0 0 16px}
+.role{font:600 1.25rem Manrope;margin:0 0 14px}.role i{font-style:normal;color:var(--sig)}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;border:1px solid var(--fg);text-decoration:none;color:var(--fg);font-weight:800}
+.btn.p{background:var(--sig);border-color:var(--sig);color:var(--sigfg)}
+/* network */
+#net{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0 40%;margin:30px 0 20px}
+#net svg{position:absolute;inset:0;pointer-events:none}
+.col{display:flex;flex-direction:column;gap:9px;position:relative;z-index:1}
+.col.r{align-items:stretch;justify-content:center;gap:22px}
+.col.l{align-items:flex-start}
+.node{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 14px;font-weight:600;font-size:.93rem;text-align:left;transition:opacity .2s,border-color .2s,background .2s}
+.node.proj{border-radius:14px;padding:14px 16px;font-size:1rem}
+.node.proj small{display:block;color:var(--mute);font-weight:400;font-size:.8rem}
+.has .node{opacity:.28}
+.has .node.on{opacity:1;border-color:var(--sig);background:color-mix(in srgb,var(--sig) 16%,var(--card))}
+.has .node.sel{border-color:var(--hot)}
+path{fill:none;stroke:var(--line);stroke-width:1.4;transition:stroke .2s,opacity .2s}
+.has path{opacity:.15}
+.has path.on{opacity:1;stroke:var(--sig);stroke-width:2;stroke-dasharray:7 7;animation:flow .8s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-14}}
+#detail{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:22px 24px;min-height:150px}
+#detail ul{margin:8px 0 0;padding-left:20px;color:var(--mute);font-size:.96rem}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.chips span{border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.84rem}
+.tl{border-left:2px solid var(--line);padding-left:22px;margin-left:6px}
+.tl article{position:relative;margin-bottom:30px}
+.tl article::before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--sig)}
+.meta{color:var(--mute);font-size:.9rem;margin:0 0 6px}
+.tl ul{margin:6px 0;padding-left:20px;color:var(--mute);font-size:.96rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card)}
+.stat b{display:block;font:800 2.6rem Unbounded,sans-serif;color:var(--sig);line-height:1.1}
+.stat span{color:var(--mute);font-size:.93rem}
+.cinfo{list-style:none;padding:0;margin:16px 0}.cinfo li{margin:6px 0}
+footer{border-top:1px solid var(--line);padding:22px 5vw;color:var(--mute);font-size:.9rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+dialog{width:min(780px,92vw);max-height:88vh;overflow:auto;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:26px}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog h4{font:800 .85rem Manrope;letter-spacing:.12em;text-transform:uppercase;color:var(--sig);margin:20px 0 6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+dialog p,dialog li{font-size:.93rem;line-height:1.5;margin:4px 0}dialog ul{padding-left:20px;margin:4px 0}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:12px}.dh .btn{padding:6px 16px}
+.pf{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}.fb{border:1px solid var(--line);background:none;border-radius:999px;padding:6px 16px}.fb[aria-pressed="true"]{background:var(--sig);border-color:var(--sig);color:var(--sigfg);font-weight:800}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}.pc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}.pc ul{margin:8px 0;padding-left:20px;color:var(--mute);font-size:.95rem}.pc .eyebrow{margin-bottom:6px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:26px}.cc{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card);display:flex;flex-direction:column;gap:2px}.cc span{color:var(--mute);font-size:.85rem}.cc a{font-size:.88rem;font-weight:600}
+.col.l{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start}.col.l .node{font-size:.84rem;padding:6px 10px}
+.col.r{gap:14px}.node.proj{padding:11px 14px}
+.two{display:grid;grid-template-columns:1fr 1.3fr;gap:44px;margin-top:20px}.two h3{margin-bottom:14px}
+.two .cgrid{grid-template-columns:1fr;margin-top:0;max-height:640px;overflow-y:auto;padding-right:6px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+@media (max-width:760px){#net{grid-template-columns:1fr;gap:26px}#net svg{display:none}.col.l{flex-direction:row;flex-wrap:wrap}}
+#bar{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--sig);transform-origin:0 50%;transform:scaleX(0);z-index:30}
+#top{position:relative;isolation:isolate;overflow:clip}
+#top::before{content:"";position:absolute;right:-12%;top:-8%;width:58vw;height:58vw;max-width:720px;max-height:720px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--sig) 30%,transparent),transparent 64%);animation:drift 14s ease-in-out infinite alternate;z-index:-1}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-9%,12%) scale(1.18)}}
+h1{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(42px) skewY(3deg)}to{opacity:1;transform:none}}
+#role::after{content:"|";margin-left:2px;color:var(--sig);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.tl article::before{animation:ring 2.6s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--sig) 55%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease,border-color .25s,box-shadow .25s}
+.rv.in{opacity:1;transform:none}
+#mesh{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.55}
+#ring{position:fixed;left:0;top:0;width:30px;height:30px;border:1.5px solid var(--sig);border-radius:50%;pointer-events:none;z-index:40;opacity:0;transition:width .2s,height .2s,background .2s}
+#ring.big{width:58px;height:58px;background:color-mix(in srgb,var(--sig) 18%,transparent)}
+.btn{transition:transform .2s ease}
+.pc:hover,.stat:hover,.cc:hover{transform:translateY(-6px);border-color:var(--sig);box-shadow:0 16px 40px -20px var(--sig)}
+#pt{display:none;width:100%;height:clamp(210px,32vw,360px);touch-action:pan-y;cursor:crosshair}
+.pt-hint{display:none;margin:0 0 18px}
+.pt-on #pt,.pt-on .pt-hint{display:block}
+.pt-on h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<canvas id="mesh" aria-hidden="true"></canvas><div id="ring" aria-hidden="true"></div>
+<header>
+  <b>PRAJWAL BC</b>
+  <nav><a href="#graph">Network</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#results">Results</a><a href="#resume">Resume</a><a href="#contact">Contact</a><button id="theme" aria-label="Switch light or dark theme">◐</button></nav>
+</header>
+
+<section id="top">
+  <p class="eyebrow">Python · Machine Learning · Data</p>
+  <h1>Prajwal<br><span>BC</span></h1>
+  <canvas id="pt" aria-hidden="true"></canvas>
+  <p class="meta pt-hint">Move your cursor over my name. Click to scatter it.</p>
+  <p class="role">I’m <i id="role">an aspiring ML engineer</i></p>
+  <p class="lead">MCA postgraduate in Bengaluru. I build data-driven applications that deliver measurable results, and I’m looking for an entry-level role in data science, ML engineering or Python development.</p>
+  <div class="row"><a class="btn p" href="#graph">Explore my work</a><a class="btn" href="https://github.com/prajwalpruthivi" target="_blank" rel="noopener">GitHub</a><a class="btn" href="https://www.linkedin.com/in/prajwal-bc-8b5121253" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="#resume">Resume</a><a class="btn" href="#contact">Contact</a></div>
+</section>
+
+<section id="graph">
+  <p class="eyebrow">How my work connects</p>
+  <h2>Skills → projects</h2>
+  <p class="lead">Hover, focus or tap a project to light up the skills it used. Tap a skill to see which projects used it.</p>
+  <div id="net"><svg id="lines" aria-hidden="true"></svg><div class="col l" id="skills"></div><div class="col r" id="projs"></div></div>
+  <div id="detail" aria-live="polite"><h3>Pick a project or skill</h3><p class="meta">The lines between the two columns show real usage from my resume.</p></div>
+</section>
+
+<section id="projects">
+  <p class="eyebrow">My projects</p><h2>Things I’ve built</h2>
+  <div class="pf" id="pf"></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<section id="experience">
+  <p class="eyebrow">Experience</p><h2>Where I’ve worked</h2>
+  <div class="tl" id="tl"></div>
+</section>
+
+<section id="education">
+  <p class="eyebrow">Education and certifications</p><h2>Where I’ve learned</h2>
+  <div class="two"><div><h3>Degrees</h3><div class="tl" id="edu"></div></div><div><h3>Certifications</h3><div class="cgrid" id="certs"></div></div></div>
+</section>
+
+<section id="results">
+  <p class="eyebrow">Results</p><h2>Measured, not claimed</h2>
+  <div class="stats" id="stats"></div>
+</section>
+
+<section id="resume">
+  <p class="eyebrow">Resume</p><h2>The full picture</h2>
+  <p class="lead">Read my resume here, or download the PDF.</p>
+  <div class="row"><button class="btn p" id="openR">Preview resume</button><a class="btn" href="Prajwal_BC_Resume.pdf" download>Download PDF</a></div>
+</section>
+
+<section id="contact">
+  <p class="eyebrow">Contact</p><h2>Let’s build something</h2>
+  <ul class="cinfo"><li>Email: <a href="mailto:bcprajwal472@gmail.com">bcprajwal472@gmail.com</a></li><li>Phone: <a href="tel:+919019380249">+91 9019380249</a></li><li>LinkedIn: <a href="https://www.linkedin.com/in/prajwal-bc-8b5121253" target="_blank" rel="noopener">prajwal-bc</a></li><li>GitHub: <a href="https://github.com/prajwalpruthivi" target="_blank" rel="noopener">prajwalpruthivi</a></li></ul>
+  <div class="row"><a class="btn p" href="mailto:bcprajwal472@gmail.com?subject=Hello%20Prajwal">Send an email</a></div>
+</section>
+<dialog id="rd" aria-label="Resume">
+<div class="dh"><h2 style="margin:0">Prajwal BC</h2><button class="btn" id="closeR">Close</button></div>
+<p>+91 9019380249 | <a href="mailto:bcprajwal472@gmail.com">bcprajwal472@gmail.com</a> | <a href="https://www.linkedin.com/in/prajwal-bc-8b5121253" target="_blank" rel="noopener">LinkedIn</a> | <a href="https://github.com/prajwalpruthivi" target="_blank" rel="noopener">GitHub</a> | Bengaluru, India</p>
+<h4>Professional summary</h4>
+<p>Computer Science postgraduate (MCA) skilled in Python, Machine Learning, SQL and Microsoft Azure. Raised recommendation model performance by 20% on 10,000+ records, cut ETL run-time by 15%, and deployed a real-time gesture classifier at 20 FPS. Seeking an entry-level role in Data Science, Machine Learning Engineering or Python Development.</p>
+<h4>Technical skills</h4>
+<ul><li><b>Languages:</b> Python, Java, C, SQL, Unix Shell Scripting, HTML, CSS</li><li><b>Libraries and frameworks:</b> Pandas, NumPy, Matplotlib, Scikit-learn, OpenCV, Django</li><li><b>Tools and platforms:</b> Microsoft Azure, VS Code, Jupyter Notebook, Microsoft Excel, Git, GitHub, SAP</li><li><b>Competencies:</b> Machine Learning, EDA, Data Structures and Algorithms, OOP, API Integration, Cloud Computing, Agile, SDLC, Functional Testing, Manual Testing, Test Case Design, QA</li></ul>
+<h4>Work experience</h4>
+<p><b>Functional Testing (QA)</b>, Digizura Technologies Private Limited (dates to be added)</p>
+<ul><li>Functional testing and validation of enterprise application modules: Enquiry, RFQ, Sales Order and Product Master.</li><li>Prepared and documented test scenarios covering key functional areas and user interactions.</li></ul>
+<p><b>Technical Project Intern</b>, University of Bengaluru (Feb 2025 – May 2025)</p>
+<ul><li>Built a movie recommendation engine in Python and Scikit-learn that lifted prediction accuracy by 20% across 10,000+ records.</li><li>Accelerated an ETL pipeline with Pandas and NumPy, cutting run-time by 15% and reclaiming about 2 hours per week.</li><li>Worked with a 5-member agile squad across 6 sprints: code reviews, unit tests and 30+ merged pull requests.</li><li>Analysed 15+ feature variables through EDA and produced 10+ Matplotlib charts that informed 3 architecture decisions.</li></ul>
+<p><b>Business Development Executive</b>, Randstad (Jan 2023 – Mar 2023)</p>
+<ul><li>Converted 20+ qualified leads in 3 months, surpassing the monthly quota by an average of 15%.</li><li>Cut average client response time from 48 to under 24 hours by revamping the onboarding checklist.</li><li>Wrote a territory brief covering 4 new districts, projecting a 25% addressable market uplift.</li></ul>
+<h4>Projects</h4>
+<ul><li><b>Movie Recommendation System using EDA:</b> content-based model, 20% accuracy uplift, 15% faster inference, 8+ visuals.</li><li><b>Smart-Compliant Village Platform for Sustainability:</b> 3-module Django platform with role-gated UI for 3 user types.</li><li><b>Real-Time Hand Gesture Recognition System:</b> 8 gestures at about 20 FPS, under 50 ms latency, F1-score up 12 points.</li></ul>
+<h4>Education</h4>
+<p>MCA, Administrative Management College, Bengaluru (2024 – 2026)<br>B.Sc. Computer Science, GMS Academy First Grade College, Davanagere (2019 – 2023)</p>
+<h4>Certifications</h4>
+<p>Generative AI by Microsoft (LinkedIn Learning); Python for Data Science (Coursera); AI Capabilities and Limitations (Anthropic); Intro to Large Language Models (Simplilearn); Autonomous Vehicle Technologies (Infosys Springboard); AI for Beginners (HP LIFE)</p>
+</dialog>
+<footer><span id="foot"></span><a href="#top">Back to top</a></footer>
+
+<script>
+const $=s=>document.querySelector(s),ul=a=>"<ul>"+a.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+const P=[
+{k:"rec",t:"Movie Recommendation System",sub:"ML · EDA",s:["Python","Scikit-learn","Pandas","NumPy","Matplotlib","WordCloud"],b:["Content-based model on 10,000+ records: 20% accuracy uplift and 15% faster inference.","Restructured the feature matrix and switched to cosine-similarity ranking.","8+ visuals (histograms, correlation heatmaps, WordClouds) for a summary report."]},
+{k:"vil",t:"Smart-Compliant Village Platform",sub:"Django web app",s:["Python","Django","HTML","CSS"],b:["3-module Django platform for energy, water and infrastructure tracking.","Automated 5 reporting tasks, trimming manual admin overhead by roughly 20%.","Role-gated UI for admin, field staff and resident users."]},
+{k:"ges",t:"Hand Gesture Recognition",sub:"Computer vision",s:["Python","OpenCV","Pandas","NumPy","Matplotlib"],b:["Classifies 8 gestures at about 20 FPS with under 50 ms latency across 5 lighting setups.","Frame normalisation and contrast-tuning preprocessing.","4 model versions; F1-score up 12 percentage points."]},
+{k:"qa",t:"Enterprise App Functional Testing",sub:"QA at Digizura Technologies",s:["Functional Testing","Manual Testing","Test Case Design","SQL"],b:["Tested the Enquiry, RFQ and Sales Order modules and validated workflows, fields and system responses.","Reviewed Product Master listings, filters, attributes, pricing and record counts.","Documented test scenarios covering key functional areas."]},
+{k:"neon",t:"Neon Air Canvas",sub:"Gesture drawing app",s:["JavaScript","MediaPipe","HTML5 Canvas","CSS"],b:["Draws glowing neon art from hand gestures using only a webcam.","Tracks 21 hand landmarks in real time; index finger draws, open palm erases, closed fist pauses.","Built a gesture state machine for lag-free interaction."]},
+{k:"kb",t:"Notion Knowledge Base Assistant",sub:"AI agent and RAG with n8n",s:["n8n","Notion","AI Agents","OpenAI","RAG"],b:["Understands questions, searches a Notion knowledge base and generates contextual answers.","Chat Message, Notion Database, Format Schema, AI Agent, Search Tools, Response.","Conversation memory and tool-based retrieval across the base and individual records."]},
+{k:"news",t:"News Automation Workflow",sub:"LLM automation with n8n",s:["n8n","Google Gemini","RSS","Gmail"],b:["Scheduled workflow: RSS Feed, Limit, Aggregate, Google Gemini, Gmail.","Fetches the latest items, summarises them with Gemini and emails the result automatically."]},
+{k:"eng",t:"Mini Content Engine",sub:"FastAPI and LLM pipeline",s:["Python","FastAPI","PostgreSQL","SQLAlchemy","OpenAI","Google Gemini","JavaScript","HTML","CSS","Docker"],b:["Turns product name and description into optimised image prompts with an LLM.","Async image-generation jobs tracked as Pending, Processing, Completed or Failed and stored in PostgreSQL.","REST APIs for generation, job tracking and health checks, with a minimal frontend."]},
+{k:"dj",t:"Django and PostgreSQL App",sub:"Full-stack web application",s:["Python","Django","PostgreSQL","HTML","CSS","Git"],b:["Django ORM schema design, migrations and CRUD on PostgreSQL.","Registration, login, logout and session-based access control.","Messages framework alerts and a customised Admin Panel."]},
+{k:"wan",t:"Wanderlust Adventure",sub:"Responsive travel website",s:["HTML","CSS","Responsive Design"],b:["Travel and tourism site featuring Kerala, the Himalayas, Jaipur and Mysore.","Hero section, destinations grid, services section, contact form and hover animations on desktop and mobile."]}];
+const S=[...new Set(P.flatMap(p=>p.s))];
+const sk=$("#skills"),pr=$("#projs"),net=$("#net"),svg=$("#lines"),det=$("#detail");
+S.forEach(s=>{const b=document.createElement("button");b.className="node";b.dataset.s=s;b.textContent=s;sk.appendChild(b)});
+P.forEach(p=>{const b=document.createElement("button");b.className="node proj";b.dataset.p=p.k;b.innerHTML=p.t+"<small>"+p.sub+"</small>";pr.appendChild(b)});
+
+function pos(el,side){const n=net.getBoundingClientRect(),r=el.getBoundingClientRect();return[(side==="r"?r.right:r.left)-n.left,r.top+r.height/2-n.top]}
+function draw(){
+  svg.innerHTML="";const n=net.getBoundingClientRect();svg.setAttribute("width",n.width);svg.setAttribute("height",n.height);
+  P.forEach(p=>p.s.forEach(s=>{
+    const a=pos(sk.querySelector('[data-s="'+s+'"]'),"r"),b=pos(pr.querySelector('[data-p="'+p.k+'"]'),"l"),dx=(b[0]-a[0])/2;
+    const e=document.createElementNS("http://www.w3.org/2000/svg","path");e.dataset.p=p.k;e.dataset.s=s;
+    e.setAttribute("d","M"+a[0]+" "+a[1]+" C"+(a[0]+dx)+" "+a[1]+","+(b[0]-dx)+" "+b[1]+","+b[0]+" "+b[1]);svg.appendChild(e);
+  }));
+  act(lock,true);
+}
+let lock=null;
+function act(sel,silent){
+  net.classList.toggle("has",!!sel);
+  document.querySelectorAll(".node,path").forEach(e=>e.classList.remove("on","sel"));
+  if(!sel)return;
+  const isP=sel.type==="p";
+  const pj=isP?[sel.v]:P.filter(p=>p.s.includes(sel.v)).map(p=>p.k),sj=isP?P.find(p=>p.k===sel.v).s:[sel.v];
+  pj.forEach(k=>pr.querySelector('[data-p="'+k+'"]').classList.add("on"));
+  sj.forEach(s=>sk.querySelector('[data-s="'+s+'"]').classList.add("on"));
+  (isP?pr.querySelector('[data-p="'+sel.v+'"]'):sk.querySelector('[data-s="'+sel.v+'"]')).classList.add("sel");
+  svg.querySelectorAll("path").forEach(e=>{if(pj.includes(e.dataset.p)&&sj.includes(e.dataset.s)&&(isP?e.dataset.p===sel.v:e.dataset.s===sel.v))e.classList.add("on")});
+  if(silent)return;
+  if(isP){const p=P.find(x=>x.k===sel.v);det.innerHTML="<h3>"+p.t+"</h3><p class='meta'>"+p.sub+"</p><div class='chips'>"+p.s.map(x=>"<span>"+x+"</span>").join("")+"</div>"+ul(p.b)}
+  else det.innerHTML="<h3>"+sel.v+"</h3><p class='meta'>Used in "+pj.length+" project"+(pj.length>1?"s":"")+"</p>"+ul(pj.map(k=>P.find(p=>p.k===k).t));
+}
+net.addEventListener("click",e=>{const b=e.target.closest(".node");if(!b)return;lock=b.dataset.p?{type:"p",v:b.dataset.p}:{type:"s",v:b.dataset.s};act(lock)});
+net.addEventListener("mouseover",e=>{const b=e.target.closest(".node");if(b&&matchMedia("(hover:hover)").matches)act(b.dataset.p?{type:"p",v:b.dataset.p}:{type:"s",v:b.dataset.s},true)});
+net.addEventListener("mouseleave",()=>act(lock,true));
+net.addEventListener("focusin",e=>{const b=e.target.closest(".node");if(b)act(b.dataset.p?{type:"p",v:b.dataset.p}:{type:"s",v:b.dataset.s},true)});
+addEventListener("resize",draw);document.fonts&&document.fonts.ready.then(draw);draw();
+
+/* experience, education, results */
+$("#tl").innerHTML=[
+["Functional Testing (QA)","Digizura Technologies Private Limited","Dates to be added",["Functional testing and validation of enterprise application modules: business workflows, data consistency and user interactions.","Documented test scenarios and gained hands-on manual testing and workflow-validation experience."]],
+["Technical Project Intern","University of Bengaluru","Feb 2025 – May 2025",["Lifted recommendation accuracy by 20% across 10,000+ records with feature engineering and hyperparameter tuning.","Cut ETL run-time by 15% with Pandas and NumPy, reclaiming about 2 hours per week.","5-member agile squad across 6 sprints: code reviews, unit tests and 30+ merged pull requests."]],
+["Business Development Executive","Randstad","Jan 2023 – Mar 2023",["Converted 20+ qualified leads in 3 months, beating the monthly quota by an average of 15%.","Cut average client response time from 48 to under 24 hours by revamping onboarding."]]
+].map(r=>"<article><h3>"+r[0]+"</h3><p class='meta'>"+r[1]+" | "+r[2]+"</p>"+ul(r[3])+"</article>").join("");
+$("#edu").innerHTML=[["Master of Computer Applications (MCA)","Administrative Management College, Bengaluru | 2024 – 2026"],["B.Sc. Computer Science","GMS Academy First Grade College, Davanagere | 2019 – 2023"]].map(e=>"<article><h3>"+e[0]+"</h3><p class='meta'>"+e[1]+"</p></article>").join("");
+const PRJ=[
+{t:"Movie Recommendation System using EDA",c:"ML and Data",s:"Python, Scikit-learn, Pandas, NumPy, Matplotlib, WordCloud",b:["Trained a content-based filtering model on 10,000+ records, achieving a 20% accuracy uplift and 15% faster inference by restructuring the feature matrix and switching to cosine-similarity ranking.","Produced 8+ visuals (frequency histograms, correlation heatmaps, WordCloud plots) distilling 3 weeks of exploratory work into a stakeholder-ready summary report."]},
+{t:"Real-Time Hand Gesture Recognition System",c:"ML and Data",s:"Python, OpenCV, Pandas, NumPy, Matplotlib",b:["Deployed an OpenCV vision pipeline classifying 8 gestures at about 20 FPS with under 50 ms latency across 5 lighting setups, using frame normalisation and contrast-tuning preprocessing.","Iterated across 4 model versions with confusion-matrix and precision-recall analysis, lifting overall F1-score by 12 percentage points."]},
+{t:"Neon Air Canvas",c:"ML and Data",s:"MediaPipe Hands, JavaScript, HTML5 Canvas, CSS3",b:["Web app that turns hand gestures into glowing neon drawings using a standard webcam, tracking 21 hand landmarks in real time.","Index finger draws with a neon glow, open palm erases, closed fist pauses tracking.","Built a gesture state machine for smooth, lag-free interaction."],u:"https://github.com/prajwalpruthivi/Neon-Air-Draw-gesture-"},
+{t:"AI-Powered Notion Knowledge Base Assistant",c:"AI Automation",s:"n8n, Notion, AI Agents, OpenAI, RAG, Workflow Automation",b:["AI assistant in n8n that understands questions, searches a Notion knowledge base, retrieves relevant information and generates contextual responses.","Workflow: Chat Message, Notion Database, Format Schema, AI Agent, Search Tools, Response.","Search across the knowledge base and individual records, with conversation memory and tool-based retrieval."]},
+{t:"AI-Powered News Automation Workflow",c:"AI Automation",s:"n8n, Google Gemini, RSS, Gmail, LLM Automation",b:["Scheduled n8n workflow that fetches the latest RSS items, aggregates them, summarises them with Google Gemini and sends the result through Gmail.","Workflow: RSS Feed, Limit, Aggregate, Google Gemini, Gmail. Ran end to end automatically."]},
+{t:"Mini Content Engine",c:"Full-Stack",s:"Python, FastAPI, PostgreSQL, SQLAlchemy, OpenAI/Gemini API, HTML/CSS/JavaScript, Docker, Render/Vercel",b:["Turns product name and description into optimised image prompts with an LLM, then runs image-generation jobs asynchronously.","Tracks job status (Pending, Processing, Completed or Failed) and stores jobs and results in PostgreSQL.","REST APIs for content generation, job tracking and health checks, plus a minimal frontend to submit products and view generated images."]},
+{t:"Smart-Compliant Village Platform for Sustainability",c:"Full-Stack",s:"Python, Django, HTML, CSS",b:["Shipped a 3-module Django platform for energy, water and infrastructure tracking; automated 5 reporting tasks and trimmed manual administrative overhead by roughly 20%.","Designed a role-gated UI for 3 user types (admin, field staff, resident) with live sensor feeds."]},
+{t:"Django and PostgreSQL Web Application",c:"Full-Stack",s:"Python, Django, PostgreSQL, HTML/CSS, Git",b:["Full-stack app using the Django ORM for schema design, migrations and CRUD operations on PostgreSQL.","Secure authentication: registration, login, logout and session-based access control.","Django messages framework for feedback alerts, conditional template rendering, and a customised Admin Panel for backend data management."]},
+{t:"Wanderlust Adventure",c:"Front-End",s:"HTML5, CSS3, Grid Layout, Flexbox, Responsive Design",b:["Responsive travel and tourism website showcasing destinations such as Kerala, the Himalayas, Jaipur and Mysore.","Hero section with overlay and animated title, About page, destinations grid, services section, contact form for trip enquiries, and hover animations."]},
+{t:"Enterprise Application Functional Testing",c:"Software Testing",s:"Functional Testing, Manual Testing, Test Case Design, SQL",b:["Tested the Enquiry, RFQ and Sales Order modules at Digizura Technologies, validating workflows, fields and system responses.","Reviewed Product Master listings, filters, attributes, pricing and record counts, and documented test scenarios."]}];
+let cat="All";const cats=["All",...new Set(PRJ.map(p=>p.c))];
+function rp(){$("#pf").innerHTML=cats.map(c=>'<button class="fb" aria-pressed="'+(c===cat)+'" data-c="'+c+'">'+c+"</button>").join("");
+$("#pgrid").innerHTML=PRJ.filter(p=>cat==="All"||p.c===cat).map(p=>'<article class="pc"><p class="eyebrow">'+p.c+"</p><h3>"+p.t+'</h3><div class="chips">'+p.s.split(", ").map(x=>"<span>"+x+"</span>").join("")+"</div>"+ul(p.b)+(p.u?'<p><a href="'+p.u+'" target="_blank" rel="noopener">View on GitHub</a></p>':"")+"</article>").join("")}
+$("#pf").onclick=e=>{const b=e.target.closest("button");if(b){cat=b.dataset.c;rp()}};rp();
+const MS="https://learn.microsoft.com/api/achievements/share/en-us/prajwalbc-6145/",SID="?sharingId=142C3BABC41C89FF";
+const m=(n,id)=>[n,"Microsoft Learn","",MS+id+SID];
+const CERT=[["SQL","HackerRank","","https://www.hackerrank.com/certificates/iframe/8ee0bb491cd5"],["Software Engineer Intern","HackerRank","Jul 2026","https://www.hackerrank.com/certificates/f7591d80d770"],["AI Capabilities and Limitations","Anthropic","May 2026",""],["What Is Generative AI?","LinkedIn Learning","May 2025","https://www.linkedin.com/learning/certificates/35a549721575607ea3ec61661fb8b16c4e02da04c2aaa4842d0bbcdd6de40572/"],["Python for Data Science","Coursera","",""],["Intro to Large Language Models","Simplilearn","",""],["AI for Beginners","HP LIFE","","https://www.life-global.org/certificate/59358170-a5d9-4392-b72f-edf952492535"],["Supplementary Content on Autonomous Vehicle Technologies","Infosys Springboard","",""],
+m("Fundamentals of Question Answering with the Language Service","NVJMS7QF"),m("Fundamentals of Azure AI Document Intelligence","URPA4CH3"),m("Get Started with AI-Powered Information Extraction in Azure","CXQYET49"),m("Get Started with Computer Vision in Azure","URPA4EE3"),m("Introduction to Computer Vision Concepts","2D9JUKXV"),m("Fundamentals of Facial Recognition","8ZB2BDCW"),m("Get Started with Azure AI Services","URPAE7E3"),m("Introduction to Machine Learning Concepts","FMTQD8WX"),m("Get Started with Lakehouses in Microsoft Fabric","XQQMGLJY"),m("Introduction to AI Concepts","URPAZ4C3")];
+$("#certs").innerHTML=CERT.map(c=>'<div class="cc"><b>'+c[0]+"</b><span>"+c[1]+(c[2]?" | "+c[2]:"")+"</span>"+(c[3]?'<a href="'+c[3]+'" target="_blank" rel="noopener">Show credential</a>':"")+"</div>").join("");
+$("#stats").innerHTML=[[20,"%","recommendation accuracy gain on 10,000+ records"],[15,"%","faster ETL pipeline run-time"],[20,"","FPS real-time gesture classifier, under 50 ms latency"],[12,"","point F1-score gain across 4 model versions"]].map(s=>"<div class='stat'><b data-n='"+s[0]+"' data-u='"+s[1]+"'>"+s[0]+s[1]+"</b><span>"+s[2]+"</span></div>").join("");
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  const t=+e.target.dataset.n,u=e.target.dataset.u,t0=performance.now();
+  (function f(now){const k=Math.min(1,(now-t0)/1000);e.target.textContent=Math.round(t*k)+u;if(k<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
+document.querySelectorAll(".stat b").forEach(b=>io.observe(b));
+
+/* resume dialog */
+const rd=$("#rd");$("#openR").onclick=()=>rd.showModal();$("#closeR").onclick=()=>rd.close();
+rd.addEventListener("click",e=>{if(e.target===rd)rd.close()});
+/* animation: network auto-tour, scroll reveal, progress bar */
+let ti=0,tour=null;
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)tour=setInterval(()=>{const r=net.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;act({type:"p",v:P[ti++%P.length].k},true)},2600);
+["pointerdown","mouseover","focusin","touchstart"].forEach(ev=>net.addEventListener(ev,()=>{if(tour){clearInterval(tour);tour=null}},{once:true}));
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");if(e.target.matches("section>h2")&&!matchMedia("(prefers-reduced-motion:reduce)").matches)scramble(e.target);rio.unobserve(e.target);setTimeout(()=>e.target.style.transitionDelay="0s",1200)}}),{threshold:.12});
+function reveal(){document.querySelectorAll(".pc,.cc,.stat,.tl article,section>h2,section>.lead,.pf").forEach((el,i)=>{if(el.classList.contains("rv"))return;el.classList.add("rv");el.style.transitionDelay=(i%6)*70+"ms";rio.observe(el)})}
+reveal();new MutationObserver(reveal).observe($("#pgrid"),{childList:true});
+addEventListener("scroll",()=>{const h=document.documentElement;$("#bar").style.transform="scaleX("+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+")"},{passive:true});
+/* particle name */
+(function(){
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+  const cv=$("#pt"),cx=cv.getContext("2d");let W,H,pts=[],mx=-999,my=-999,raf=0,vis=true;
+  function build(){
+    const dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;if(!W||!H)return;
+    cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    const o=document.createElement("canvas");o.width=W;o.height=H;const oc=o.getContext("2d"),fs=Math.min(W/6.3,H*.44);
+    oc.font="800 "+fs+"px Unbounded,sans-serif";oc.textBaseline="middle";oc.fillText("Prajwal",0,H*.27);oc.fillText("BC",0,H*.76);
+    const d=oc.getImageData(0,0,W,H).data,g=W<500?4:5;pts=[];
+    for(let y=0;y<H;y+=g)for(let x=0;x<W;x+=g)if(d[(y*W+x)*4+3]>128)pts.push({x:Math.random()*W,y:Math.random()*H,hx:x,hy:y,vx:0,vy:0,bc:y>H*.52});
+  }
+  function tick(){
+    cx.clearRect(0,0,W,H);
+    const cs=getComputedStyle(document.documentElement),c1=cs.getPropertyValue("--fg").trim(),c2=cs.getPropertyValue("--sig").trim();
+    for(const p of pts){
+      const dx=p.x-mx,dy=p.y-my,dd=dx*dx+dy*dy;
+      if(dd<9000){const f=(1-dd/9000)*6,a=Math.atan2(dy,dx);p.vx+=Math.cos(a)*f;p.vy+=Math.sin(a)*f}
+      p.vx+=(p.hx-p.x)*.06;p.vy+=(p.hy-p.y)*.06;p.vx*=.82;p.vy*=.82;p.x+=p.vx;p.y+=p.vy;
+      cx.fillStyle=p.bc?c2:c1;cx.fillRect(p.x,p.y,2.4,2.4);
+    }
+    raf=vis?requestAnimationFrame(tick):0;
+  }
+  function init(){
+    $("#top").classList.add("pt-on");build();if(!raf)tick();
+    let t;addEventListener("resize",()=>{clearTimeout(t);t=setTimeout(build,200)});
+  }
+  cv.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+  cv.addEventListener("pointerleave",()=>{mx=my=-999});
+  cv.addEventListener("pointerdown",()=>pts.forEach(p=>{const a=Math.random()*6.28,f=6+Math.random()*10;p.vx+=Math.cos(a)*f;p.vy+=Math.sin(a)*f}));
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!raf&&pts.length)tick()}).observe(cv);
+  (document.fonts?document.fonts.load("800 60px Unbounded"):Promise.resolve()).then(init,init);
+})();
+/* unique motion: neural mesh, decode text, magnetic buttons, cursor ring */
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function scramble(el){const t=el.textContent,ch="01<>/{}#$%";let f=0;const id=setInterval(()=>{el.textContent=t.split("").map((c,i)=>c===" "||i<f/1.6?c:ch[Math.random()*ch.length|0]).join("");if(++f>t.length*1.6){el.textContent=t;clearInterval(id)}},28)}
+if(!RM){
+  const cv=$("#mesh"),x=cv.getContext("2d"),dpr=Math.min(devicePixelRatio||1,2);let W,H,pts=[],m={x:-999,y:-999},col="#c6f432",fr=0;
+  function size(){W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;pts=Array.from({length:Math.round(innerWidth*innerHeight/22000)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3*dpr,vy:(Math.random()-.5)*.3*dpr}))}
+  size();addEventListener("resize",size);
+  addEventListener("pointermove",e=>{m.x=e.clientX*dpr;m.y=e.clientY*dpr},{passive:true});
+  (function f(){
+    if(fr++%90===0)col=getComputedStyle(document.documentElement).getPropertyValue("--sig").trim();
+    x.clearRect(0,0,W,H);x.strokeStyle=col;x.fillStyle=col;x.lineWidth=dpr;
+    const L=110*dpr,M=170*dpr;
+    pts.forEach((p,i)=>{
+      const dx=m.x-p.x,dy=m.y-p.y,dm=Math.hypot(dx,dy);
+      if(dm<M){p.x+=dx*.004;p.y+=dy*.004;x.globalAlpha=(1-dm/M)*.7;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(m.x,m.y);x.stroke()}
+      p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      x.globalAlpha=.8;x.beginPath();x.arc(p.x,p.y,1.5*dpr,0,6.283);x.fill();
+      for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<L){x.globalAlpha=(1-d/L)*.35;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
+    });
+    requestAnimationFrame(f)})();
+  if(matchMedia("(hover:hover)").matches){
+    document.querySelectorAll(".btn").forEach(b=>{b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.transform="translate("+(e.clientX-r.left-r.width/2)*.18+"px,"+(e.clientY-r.top-r.height/2)*.3+"px)"});b.addEventListener("pointerleave",()=>b.style.transform="")});
+    const ring=$("#ring");let rx=0,ry=0,tx=0,ty=0;
+    addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;ring.style.opacity=1;ring.classList.toggle("big",!!e.target.closest("a,button,.node"))},{passive:true});
+    (function f(){rx+=(tx-rx)*.18;ry+=(ty-ry)*.18;ring.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)";requestAnimationFrame(f)})();
+  }
+}
+/* roles + theme */
+const roles=["an aspiring ML engineer","a Python developer","a data science graduate","a software developer"];
+(function(){const el=$("#role");if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+let i=0,j=0,d=false;(function t(){const w=roles[i];el.textContent=w.slice(0,j);
+if(!d&&j===w.length){d=true;return setTimeout(t,1500)}
+if(d&&j===0){d=false;i=(i+1)%roles.length}
+j+=d?-1:1;setTimeout(t,d?35:70)})()})();
+$("#theme").onclick=()=>{const r=document.documentElement;r.dataset.theme=getComputedStyle(r).getPropertyValue("--bg").trim()==="#101312"?"light":"dark"};
+$("#foot").textContent="© "+new Date().getFullYear()+" Prajwal BC. All rights reserved.";
+</script>
+</body>
+</html>
